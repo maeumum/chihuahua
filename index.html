@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Figma Test - iPhone 13 mini</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-root">
+    <div class="iphone-frame">
+      <!-- Screen 1: Start 화면 -->
+      <div class="screen screen-1">
+        <div class="screen-bg"></div>
+
+        <!-- Pink decorative vectors -->
+        <img src="assets/Vector 3.svg" class="vector vector-3" alt="" />
+        <img src="assets/Vector 4.svg" class="vector vector-4" alt="" />
+        <img src="assets/Vector 2.svg" class="vector vector-2" alt="" />
+        <img src="assets/Vector 5.svg" class="vector vector-5" alt="" />
+
+        <!-- Center group -->
+        <div class="center-group">
+          <img src="assets/Vector 1.svg" class="center-vector" alt="" />
+          <div class="center-text">Start!</div>
+        </div>
+      </div>
+
+      <!-- Screen 2: 하얀 배경 + 이미지 + "클릭해봐!!" -->
+      <div class="screen screen-2">
+        <div class="image-1"></div>
+        <div class="click-text">클릭해봐!!</div>
+      </div>
+
+      <!-- Screen 3: 회전된 이미지 + "또 클릭해봐!!" -->
+      <div class="screen screen-3">
+        <div class="image-2"></div>
+        <div class="screen3-text">또 클릭해봐!!</div>
+      </div>
+
+      <!-- Screen 4: image2 위에 image3가 덮어 씌우며 모두 사라짐 -->
+      <div class="screen screen-4">
+        <div class="image-2-bg"></div>
+        <div class="image-3-overlay"></div>
+        <div class="screen4-text">또 클릭해봐!!</div>
+      </div>
+
+      <!-- Screen 5: 마지막 인사 -->
+      <div class="screen screen-5">
+        <div class="screen5-text">감사합니다☺️🍔♥️😻🐩</div>
+      </div>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>

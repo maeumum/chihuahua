@@ -1,0 +1,428 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #111;
+  font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+
+.app-root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.iphone-frame {
+  position: relative;
+  width: 385px;
+  height: 812px;
+  background: #44F8DA;
+  border-radius: 36px;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.45),
+    0 0 0 6px rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.screen {
+  position: absolute;
+  inset: 0;
+}
+
+.screen-1 {
+  display: block;
+}
+
+.screen-2 {
+  display: none;
+  background: #FFFFFF;
+}
+
+.screen-3 {
+  display: none;
+  background: #FFFFFF;
+}
+
+.screen-4 {
+  display: none;
+  background: #FFFFFF;
+}
+
+.screen-5 {
+  display: none;
+  background: #FFFFFF;
+}
+
+.screen-bg {
+  position: absolute;
+  inset: 0;
+  background: #44F8DA;
+}
+
+/* (JS에서 직접 전환하므로 .iphone-frame.screen-2 관련 스타일은 사용하지 않음) */
+
+/* Status bar */
+.status-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 385px;
+  height: 45px;
+}
+
+.status-bar::before {
+  /* 회색 BG (Carbon Neutral/300) */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #D6D9DD;
+}
+
+.notch {
+  position: absolute;
+  width: 219px;
+  height: 30px;
+  left: calc(50% - 219px / 2);
+  top: -2px;
+  background: #000000;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+.status-left {
+  position: absolute;
+  left: 21px;
+  top: 12px;
+  width: 54px;
+  height: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.time-chip {
+  width: 54px;
+  height: 21px;
+  border-radius: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.time-text {
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 600;
+  color: #000000;
+}
+
+.status-right {
+  position: absolute;
+  right: 17px;
+  top: 8px;
+  height: 29px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.record-indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #FF9500;
+}
+
+/* Cellular signal */
+.signal {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.signal .bar {
+  width: 3px;
+  background: #DADADA;
+}
+
+.signal .bar-1 { height: 4px; }
+.signal .bar-2 { height: 6px; }
+.signal .bar-3 { height: 8.33px; }
+.signal .bar-4 { height: 10.67px; }
+
+/* Wifi */
+.wifi {
+  position: relative;
+  width: 15.27px;
+  height: 11px;
+}
+
+.wifi-arc {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: #DADADA;
+}
+
+.wifi .arc-1 {
+  width: 15.27px;
+  height: 4.74px;
+  top: 0;
+}
+
+.wifi .arc-2 {
+  width: 9.95px;
+  height: 3.63px;
+  top: 3.8px;
+}
+
+.wifi .arc-3 {
+  width: 4.63px;
+  height: 3.37px;
+  top: 7px;
+}
+
+/* Battery */
+.battery {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.battery-body {
+  position: relative;
+  width: 22px;
+  height: 11.33px;
+  border-radius: 2.66667px;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  box-sizing: border-box;
+}
+
+.battery-level {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  border-radius: 1.33333px;
+  background: #000000;
+}
+
+.battery-cap {
+  width: 1.33px;
+  height: 4px;
+  border-radius: 1px;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Pink vectors (Figma SVG 사용) */
+.vector {
+  position: absolute;
+  display: block;
+}
+
+.vector-3 {
+  width: 112px;
+  height: 95px;
+  left: 259px;
+  top: 166px;
+}
+
+.vector-4 {
+  width: 104.5px;
+  height: 135px;
+  left: -11.5px;
+  top: 393px;
+}
+
+.vector-2 {
+  width: 111.5px;
+  height: 96px;
+  left: 148px;
+  top: 595px;
+}
+
+.vector-5 {
+  width: 111.5px;
+  height: 96px;
+  left: 204.48px;
+  top: 440.21px;
+  transform: rotate(-15deg);
+}
+
+/* Center group + Start! */
+.center-group {
+  position: absolute;
+  width: 144.5px;
+  height: 126.5px;
+  left: 100px;
+  top: 254.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.center-vector {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.center-text {
+  position: relative;
+  font-family: "Major Mono Display", monospace;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 24px;
+  color: #FFFFFF;
+}
+
+/* Screen 2 요소들 */
+.image-1 {
+  position: absolute;
+  width: 382px;
+  height: 382px;
+  left: -3px;
+  top: 215px;
+  background: url("assets/image.png") center center / cover no-repeat;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.click-text {
+  position: absolute;
+  width: 253px;
+  height: 111px;
+  left: 62px;
+  top: 650px;
+  font-family: "Major Mono Display", monospace;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 24px;
+  color: #000000;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.screen-2.show-content .image-1,
+.screen-2.show-content .click-text {
+  opacity: 1;
+}
+
+/* Screen 3 요소들 (회전된 image 2) */
+.image-2 {
+  position: absolute;
+  width: 654px;
+  height: 375px;
+  left: -140px; /* 회전 후 가운데 오도록 대략 조정 */
+  top: 220px;
+  background: url("assets/image2.png") center center / cover no-repeat;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  transform: rotate(90deg);
+}
+
+/* Screen 3 텍스트 */
+.screen3-text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Major Mono Display", monospace;
+  font-size: 24px;
+  color: #66ff00;
+  font-weight: 600;
+
+}
+
+/* Screen 4 요소들 (image3가 image2를 갉아먹는 효과) */
+.image-2-bg {
+  position: absolute;
+  inset: 0;
+  background: url("assets/image2.png") center center / cover no-repeat;
+  background-size: cover;
+  opacity: 1;
+  animation: fade-out-burger 3s ease-in forwards;
+}
+
+.image-3-overlay {
+  position: absolute;
+  inset: 0;
+  background: url("assets/image3.png") center center / contain no-repeat;
+  animation: eat-burger 3s ease-in forwards;
+}
+
+.screen4-text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Major Mono Display", monospace;
+  font-size: 24px;
+  color: #e905e5;
+  opacity: 0;
+  animation: show-screen4-text 1s ease-in forwards;
+  animation-delay: 3s; /* 배경 애니메이션(3s) 끝난 뒤 등장 */
+}
+
+.screen5-text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Major Mono Display", monospace;
+  font-size: 50px;
+  color: #000000;
+}
+
+@keyframes fade-out-burger {
+  0% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes eat-burger {
+  0% {
+    clip-path: circle(0% at 50% 60%);
+    opacity: 0;
+  }
+  40% {
+    clip-path: circle(40% at 50% 60%);
+    opacity: 1;
+  }
+  80% {
+    clip-path: circle(80% at 50% 60%);
+    opacity: 1;
+  }
+  100% {
+    clip-path: circle(100% at 50% 60%);
+    opacity: 0;
+  }
+}
+
+@keyframes show-screen4-text {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
